@@ -1,0 +1,1 @@
+5 iterations of tpower with momentum (alpha = 0.8) followed by projected gradient ascent with LR: 0.0005
