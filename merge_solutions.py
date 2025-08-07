@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import argparse
 import os
-import warnings
 
 def main():
     p = argparse.ArgumentParser(

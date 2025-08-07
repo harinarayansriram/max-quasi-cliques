@@ -33,7 +33,7 @@ A = sparse_matrix.tocsr()
 
 def tpower(A: csr_matrix, K: int, max_iters=5000, tol=1e-6):
     n = A.shape[0]
-    # 1) init: top-eigenvector, made nonnegative
+    # init: top-eigenvector, made nonnegative
     _, v = eigsh(A, k=1, which='LA', tol=5e-7, maxiter=1000)
     z = np.abs(v.ravel())
     
@@ -48,7 +48,7 @@ def tpower(A: csr_matrix, K: int, max_iters=5000, tol=1e-6):
 
     for it in range(max_iters):
         y = A.dot(z)
-        # truncate: keep only K largest entries
+        # truncate: keep only k largest entries
         idx = np.argpartition(y, -K)[-K:]
         y_trunc = np.zeros_like(y)
         y_trunc[idx] = y[idx]
